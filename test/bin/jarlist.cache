@@ -1,5 +1,6 @@
 # cache for current jar dependency. DO NOT EDIT.
 # format is <lastModified> <length> <SHA-1> <path>
 # Encoding is UTF-8
-1400669281219 621451 5896b0a4e377ac4242eb2bc785220c1c4fc052f4 C:\Users\Max\workspace\android\appcompat_v7_7\libs\android-support-v4.jar
-1400670553798 621451 5896b0a4e377ac4242eb2bc785220c1c4fc052f4 C:\Users\Max\workspace\android\test\libs\android-support-v4.jar
+1400675235048 621451 5896b0a4e377ac4242eb2bc785220c1c4fc052f4 C:\Users\Max\git\TeamprojektLockPattern\test\libs\android-support-v4.jar
+1400675235121 621451 5896b0a4e377ac4242eb2bc785220c1c4fc052f4 C:\Users\Max\git\TeamprojektLockPattern\android-lockpattern\libs\android-support-v4.jar
+1400669281219 621451 5896b0a4e377ac4242eb2bc785220c1c4fc052f4 C:\Users\Max\git\TeamprojektLockPattern\appcompat_v7_7\libs\android-support-v4.jar

@@ -257,6 +257,7 @@ int drawable aosp_indicator_code_lock_point_area_blue_holo 0x7f020065
 int drawable aosp_indicator_code_lock_point_area_green_holo 0x7f020066
 int drawable aosp_indicator_code_lock_point_area_red_holo 0x7f020067
 int drawable ic_launcher 0x7f020068
+int id KonsoleTV 0x7f0c003c
 int id action_bar 0x7f0c001c
 int id action_bar_activity_content 0x7f0c0015
 int id action_bar_container 0x7f0c001b
@@ -269,11 +270,11 @@ int id action_menu_divider 0x7f0c0016
 int id action_menu_presenter 0x7f0c0017
 int id action_mode_close_button 0x7f0c0024
 int id activity_chooser_view_content 0x7f0c0025
-int id alp_42447968_button_cancel 0x7f0c003f
-int id alp_42447968_button_confirm 0x7f0c0040
-int id alp_42447968_textview_info 0x7f0c003c
-int id alp_42447968_view_lock_pattern 0x7f0c003e
-int id alp_42447968_viewgroup_footer 0x7f0c003d
+int id alp_42447968_button_cancel 0x7f0c0040
+int id alp_42447968_button_confirm 0x7f0c0041
+int id alp_42447968_textview_info 0x7f0c003d
+int id alp_42447968_view_lock_pattern 0x7f0c003f
+int id alp_42447968_viewgroup_footer 0x7f0c003e
 int id always 0x7f0c000b
 int id beginning 0x7f0c0011
 int id checkbox 0x7f0c002d
