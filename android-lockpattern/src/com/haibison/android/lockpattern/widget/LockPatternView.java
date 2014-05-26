@@ -68,15 +68,16 @@ public class LockPatternView extends View {
      * This is the width of the matrix (the number of dots per row and column).
      * Change this value to change the dimension of the pattern's matrix.
      * 
+     * Removed final modifier to make the width settable.
      * @since v2.7 beta
      * @author Thomas Breitbach
      */
-    public static final int MATRIX_WIDTH = 3;
+    public static int MATRIX_WIDTH = 4;
 
     /**
      * The size of the pattern's matrix.
      */
-    public static final int MATRIX_SIZE = MATRIX_WIDTH * MATRIX_WIDTH;
+    public static int MATRIX_SIZE = MATRIX_WIDTH * MATRIX_WIDTH;
 
     private static final boolean PROFILE_DRAWING = false;
     private boolean mDrawingProfilingStarted = false;
@@ -160,6 +161,23 @@ public class LockPatternView extends View {
     private final int mPaddingTop = mPadding;
     private final int mPaddingBottom = mPadding;
 
+
+    /**
+     * Sets the width of the matrix.
+     * @param iNewWidth - The new matrix width.
+     */
+    public void setMatrixWidth(int iNewWidth) {
+    	MATRIX_WIDTH = iNewWidth;
+    }
+    
+    /**
+     * Gets the width of the matrix.
+     * @return the width of the matrix.
+     */
+    public int getMatrixWidth() {
+    	return MATRIX_WIDTH;
+    }
+    
     /**
      * Represents a cell in the MATRIX_WIDTH x MATRIX_WIDTH matrix of the unlock
      * pattern view.
@@ -180,7 +198,7 @@ public class LockPatternView extends View {
                 }
             }
         }
-
+        
         /**
          * @param row
          *            The row of the cell.

@@ -1,14 +1,22 @@
 package com.teamprojekt.lockpattern;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
 import com.haibison.android.lockpattern.LockPatternActivity;
 import com.haibison.android.lockpattern.util.Settings;
+import com.haibison.android.lockpattern.widget.LockPatternUtils;
+import com.haibison.android.lockpattern.widget.LockPatternView;
 public class MainActivity extends Activity {
 	private static final int REQ_CREATE_PATTERN = 1;
 	private final static int REQ_ENTER_PATTERN = 2;
@@ -21,10 +29,60 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		this.status_message = (TextView) findViewById(R.id.status_message);
 	}
-	public void createPattern(View view){
-			Intent intentCreatePattern = new Intent(LockPatternActivity.ACTION_CREATE_PATTERN, null, this, LockPatternActivity.class);
-			startActivityForResult(intentCreatePattern, REQ_CREATE_PATTERN);
-			Settings.Security.setAutoSavePattern(this, true);
+	    
+	public void changeGridSize(MenuItem item){
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle(R.string.choose_grid_size)
+			   .setItems(R.array.grid_size, new DialogInterface.OnClickListener() {
+				   public void onClick(DialogInterface dialog, int which) {
+					   // The 'which' argument contains the index position
+					   // of the selected item
+					   switch(which){
+					   case 1:
+						   LockPatternView.MATRIX_WIDTH = 3;
+						   break;
+					   }
+	               	}
+	        });
+	        builder.create();
+	        builder.show();
+
+	    }
+	
+    public void setStealthMode(MenuItem item) {
+    	AlertDialog.Builder builder = new AlertDialog.Builder(this);
+    	builder.setTitle(R.string.stealth_mode)
+    		   .setItems(R.array.choose_stealth_mode, new OnClickListener() {
+
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+			    	switch (which) {
+			    	case 0:
+			    		setPatternStealthMode(true);
+			    		break;
+			    	case 1:
+			    		setPatternStealthMode(false);
+			    		break;
+			    	}
+				}
+
+    		   });
+    	builder.create();
+    	builder.show();
+    }
+
+    protected void setPatternStealthMode(boolean stealthMode) {
+    	Settings.Display.setStealthMode(this, stealthMode);
+    }
+    
+    protected void setStatusMessage(String message) {
+    	this.status_message.setText(message);
+    }
+    
+	public void createPattern(View view) {
+		Intent intentCreatePattern = new Intent(LockPatternActivity.ACTION_CREATE_PATTERN, null, this, LockPatternActivity.class);
+		startActivityForResult(intentCreatePattern, REQ_CREATE_PATTERN);
+		Settings.Security.setAutoSavePattern(this, true);
 	}
 	
 	public void enterPattern(View view){

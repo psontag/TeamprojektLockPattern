@@ -50,11 +50,11 @@ public final class R {
 		public static final int aosp_indicator_code_lock_point_area_red_holo = 0x7f020010;
 	}
 	public static final class id {
-		public static final int alp_42447968_button_cancel = 0x7f0c0006;
-		public static final int alp_42447968_button_confirm = 0x7f0c0007;
-		public static final int alp_42447968_textview_info = 0x7f0c0003;
-		public static final int alp_42447968_view_lock_pattern = 0x7f0c0005;
-		public static final int alp_42447968_viewgroup_footer = 0x7f0c0004;
+		public static final int alp_42447968_button_cancel = 0x7f0d0006;
+		public static final int alp_42447968_button_confirm = 0x7f0d0007;
+		public static final int alp_42447968_textview_info = 0x7f0d0003;
+		public static final int alp_42447968_view_lock_pattern = 0x7f0d0005;
+		public static final int alp_42447968_viewgroup_footer = 0x7f0d0004;
 	}
 	public static final class integer {
 		public static final int alp_42447968_pkey_display_captcha_wired_dots_default = 0x7f080002;

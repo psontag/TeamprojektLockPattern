@@ -8,6 +8,10 @@
 package com.teamprojekt.lockpattern;
 
 public final class R {
+    public static final class array {
+        public static final int choose_stealth_mode=0x7f0b0001;
+        public static final int grid_size=0x7f0b0000;
+    }
     public static final class attr {
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
@@ -87,15 +91,16 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int ic_launcher=0x7f020011;
     }
     public static final class id {
-        public static final int action_settings=0x7f0c0008;
-        public static final int alp_42447968_button_cancel=0x7f0c0006;
-        public static final int alp_42447968_button_confirm=0x7f0c0007;
-        public static final int alp_42447968_textview_info=0x7f0c0003;
-        public static final int alp_42447968_view_lock_pattern=0x7f0c0005;
-        public static final int alp_42447968_viewgroup_footer=0x7f0c0004;
-        public static final int button_create_pattern=0x7f0c0000;
-        public static final int button_enter_pattern=0x7f0c0001;
-        public static final int status_message=0x7f0c0002;
+        public static final int alp_42447968_button_cancel=0x7f0d0006;
+        public static final int alp_42447968_button_confirm=0x7f0d0007;
+        public static final int alp_42447968_textview_info=0x7f0d0003;
+        public static final int alp_42447968_view_lock_pattern=0x7f0d0005;
+        public static final int alp_42447968_viewgroup_footer=0x7f0d0004;
+        public static final int button_create_pattern=0x7f0d0000;
+        public static final int button_enter_pattern=0x7f0d0001;
+        public static final int grid_size=0x7f0d0008;
+        public static final int status_message=0x7f0d0002;
+        public static final int stealth_mode=0x7f0d0009;
     }
     public static final class integer {
         public static final int alp_42447968_pkey_display_captcha_wired_dots_default=0x7f080002;
@@ -109,7 +114,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int alp_42447968_lock_pattern_view=0x7f030003;
     }
     public static final class menu {
-        public static final int main=0x7f0b0000;
+        public static final int main=0x7f0c0000;
     }
     public static final class plurals {
         public static final int alp_42447968_pmsg_connect_x_dots=0x7f090000;
@@ -141,8 +146,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int alp_42447968_pkey_sys_encrypter_class=0x7f060002;
         public static final int alp_42447968_pkey_sys_pattern=0x7f060000;
         public static final int app_name=0x7f060018;
+        public static final int choose_grid_size=0x7f06001d;
         public static final int create_pattern=0x7f06001a;
         public static final int enter_pattern=0x7f06001b;
+        public static final int grid_size_settings=0x7f06001c;
+        public static final int stealth_mode=0x7f06001e;
     }
     public static final class style {
         public static final int AOSP_DialogWindowTitle=0x7f0a000f;

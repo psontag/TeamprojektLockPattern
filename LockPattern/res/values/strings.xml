@@ -5,4 +5,12 @@
     <string name="action_settings">Settings</string>
 	<string name="create_pattern">Create Pattern</string>
 	<string name="enter_pattern">Enter Pattern</string>
+	<string name="grid_size_settings">Grid size</string>
+    <string name="choose_grid_size">Choose grid size</string>
+    <string-array name="grid_size"><item>3x3-Matrix</item>
+                                   <item>4x4-Matrix</item>
+                                   <item>5x5-Matrix</item></string-array>
+	<string name="stealth_mode">Stealth Mode</string>
+	<string-array name="choose_stealth_mode"><item>Enable Stealth Mode</item>
+	   										 <item>Disable Stealth Mode</item></string-array>
 </resources>
