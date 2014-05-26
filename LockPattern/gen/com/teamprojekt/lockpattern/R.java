@@ -93,9 +93,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int alp_42447968_textview_info=0x7f0c0003;
         public static final int alp_42447968_view_lock_pattern=0x7f0c0005;
         public static final int alp_42447968_viewgroup_footer=0x7f0c0004;
-        public static final int button_create_pattern=0x7f0c0001;
-        public static final int button_enter_pattern=0x7f0c0002;
-        public static final int status_message=0x7f0c0000;
+        public static final int button_create_pattern=0x7f0c0000;
+        public static final int button_enter_pattern=0x7f0c0001;
+        public static final int status_message=0x7f0c0002;
     }
     public static final class integer {
         public static final int alp_42447968_pkey_display_captcha_wired_dots_default=0x7f080002;

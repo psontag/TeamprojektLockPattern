@@ -7,7 +7,6 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 
-
 import com.haibison.android.lockpattern.LockPatternActivity;
 import com.haibison.android.lockpattern.util.Settings;
 public class MainActivity extends Activity {

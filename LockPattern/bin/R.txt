@@ -39,9 +39,9 @@ int id alp_42447968_button_confirm 0x7f0c0007
 int id alp_42447968_textview_info 0x7f0c0003
 int id alp_42447968_view_lock_pattern 0x7f0c0005
 int id alp_42447968_viewgroup_footer 0x7f0c0004
-int id button_create_pattern 0x7f0c0001
-int id button_enter_pattern 0x7f0c0002
-int id status_message 0x7f0c0000
+int id button_create_pattern 0x7f0c0000
+int id button_enter_pattern 0x7f0c0001
+int id status_message 0x7f0c0002
 int integer alp_42447968_pkey_display_captcha_wired_dots_default 0x7f080002
 int integer alp_42447968_pkey_display_max_retries_default 0x7f080001
 int integer alp_42447968_pkey_display_min_wired_dots_default 0x7f080000
