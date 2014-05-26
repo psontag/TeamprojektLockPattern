@@ -1,5 +1,7 @@
 package com.teamprojekt.lockpattern;
 
+import java.util.List;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -30,6 +32,11 @@ public class MainActivity extends Activity {
 		this.status_message = (TextView) findViewById(R.id.status_message);
 	}
 	    
+	/**
+	 * Menü-Methode, um die Größe des GridSize zu verändern.
+	 * Geht nicht, weil MATRIX_WIDTH eine Konstante ist.
+	 * @param item
+	 */
 	public void changeGridSize(MenuItem item){
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setTitle(R.string.choose_grid_size)
@@ -46,9 +53,12 @@ public class MainActivity extends Activity {
 	        });
 	        builder.create();
 	        builder.show();
-
 	    }
 	
+	/**
+	 * Menü-Methode, um StealthMode zu setzen.
+	 * @param item
+	 */
     public void setStealthMode(MenuItem item) {
     	AlertDialog.Builder builder = new AlertDialog.Builder(this);
     	builder.setTitle(R.string.stealth_mode)
@@ -71,6 +81,10 @@ public class MainActivity extends Activity {
     	builder.show();
     }
 
+    /**
+     * Wrapper-Methode, um den StealthMode in den Settings von LockPattern zu ändern.
+     * @param stealthMode - true für ein.
+     */
     protected void setPatternStealthMode(boolean stealthMode) {
     	Settings.Display.setStealthMode(this, stealthMode);
     }
