@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="C:\Users\Benjamin\AndroidStudioProjects\NFCPass\app\build\pre-dexed\debug\classes-eabff2fbaeb8b9cb33eb97a575a42de0c77eb1de.jar"
+        jar="C:\Users\Benjamin\AndroidStudioProjects\NFCPass\build\exploded-aar\com.android.support\appcompat-v7\19.0.1\classes.jar"
+        jumboMode="false"
+        revision="19.0.3"
+        sha1="f71a6822470c9eb659d4f4a6cb57b780b35f058b"/>
+    <item
+        dex="C:\Users\Benjamin\AndroidStudioProjects\NFCPass\app\build\pre-dexed\debug\support-v4-19.0.1-033f025f4e8c15f9276929c993d2871c635ba9fa.jar"
+        jar="C:\Program Files (x86)\Android Studio\sdk\extras\android\m2repository\com\android\support\support-v4\19.0.1\support-v4-19.0.1.jar"
+        jumboMode="false"
+        revision="19.0.3"
+        sha1="587da9a481ffd341d2fa091704489b89845ddacd"/>
+
+</pre-dex-items>
