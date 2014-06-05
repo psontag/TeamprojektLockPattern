@@ -33,8 +33,7 @@ public class MainActivity extends Activity {
 	}
 	    
 	/**
-	 * Menü-Methode, um die Größe des GridSize zu verändern.
-	 * Geht nicht, weil MATRIX_WIDTH eine Konstante ist.
+	 * Menu method to change grid size of matrix.
 	 * @param item
 	 */
 	public void changeGridSize(MenuItem item){
@@ -45,8 +44,21 @@ public class MainActivity extends Activity {
 					   // The 'which' argument contains the index position
 					   // of the selected item
 					   switch(which){
+					   //set width to 3x3
+					   case 0:
+						   status_message.setText("Achtung! 3x3 bietet zu wenig Kombinationsmöglichkeiten, "
+						   		+ "um ein sicheres Muster zu erstellen.");
+						   LockPatternView.setMatrixWidth(3);
+						   break;
+					   //set width to 4x4
 					   case 1:
-						   LockPatternView.MATRIX_WIDTH = 3;
+						   status_message.setText("");
+						   LockPatternView.setMatrixWidth(4);
+						   break;
+					   //set width to 5x5
+					   case 2:
+						   status_message.setText("");
+						   LockPatternView.setMatrixWidth(5);
 						   break;
 					   }
 	               	}
@@ -56,7 +68,7 @@ public class MainActivity extends Activity {
 	    }
 	
 	/**
-	 * Menü-Methode, um StealthMode zu setzen.
+	 * Menu method to set stealth mode.
 	 * @param item
 	 */
     public void setStealthMode(MenuItem item) {
@@ -82,8 +94,8 @@ public class MainActivity extends Activity {
     }
 
     /**
-     * Wrapper-Methode, um den StealthMode in den Settings von LockPattern zu ändern.
-     * @param stealthMode - true für ein.
+     * Wrapper method, to change the stealth mode property for LockPattern.
+     * @param stealthMode - true for stealth.
      */
     protected void setPatternStealthMode(boolean stealthMode) {
     	Settings.Display.setStealthMode(this, stealthMode);

@@ -71,13 +71,19 @@ public class LockPatternView extends View {
      * Removed final modifier to make the width settable.
      * @since v2.7 beta
      * @author Thomas Breitbach
+     * Changed name from constant to variable conventions to make it more clear, that it is settable.
+     * @since vX.Y gamma
+     * @author zipperle007
      */
-    public static int MATRIX_WIDTH = 4;
+    private static int matrixWidth = 4;
 
     /**
      * The size of the pattern's matrix.
+     * Changed name from constant to variable conventions to make it more clear, that it is settable.
+     * @since vX.Y gamma
+     * @author zipperle007
      */
-    public static int MATRIX_SIZE = MATRIX_WIDTH * MATRIX_WIDTH;
+    private static int matrixSize = matrixWidth * matrixWidth;
 
     private static final boolean PROFILE_DRAWING = false;
     private boolean mDrawingProfilingStarted = false;
@@ -100,7 +106,7 @@ public class LockPatternView extends View {
     private static final float DRAG_THRESHHOLD = 0.0f;
 
     private OnPatternListener mOnPatternListener;
-    private ArrayList<Cell> mPattern = new ArrayList<Cell>(MATRIX_SIZE);
+    private ArrayList<Cell> mPattern = new ArrayList<Cell>(matrixSize);
 
     /**
      * Lookup table for the circles of the pattern we are currently drawing.
@@ -108,7 +114,7 @@ public class LockPatternView extends View {
      * in which case we use this to hold the cells we are drawing for the in
      * progress animation.
      */
-    private boolean[][] mPatternDrawLookup = new boolean[MATRIX_WIDTH][MATRIX_WIDTH];
+    private boolean[][] mPatternDrawLookup = new boolean[matrixWidth][matrixWidth];
 
     /**
      * the in progress point: - during interaction: where the user's finger is -
@@ -163,23 +169,61 @@ public class LockPatternView extends View {
 
 
     /**
-     * Sets the width of the matrix.
+     * Sets the width of the matrix. Values <= 3 are set to 3, values >= 5 are set to 5 and 4 is kept.
+     * This is just to keep the grid size in usable dimensions.
      * @param iNewWidth - The new matrix width.
+     * @author zipperle007
      */
-    public void setMatrixWidth(int iNewWidth) {
-    	MATRIX_WIDTH = iNewWidth;
+    public static void setMatrixWidth(int iNewWidth) {
+    	if (iNewWidth <= 3) {
+    		matrixWidth = 3;
+    	} else if  (iNewWidth >= 5) {
+    		matrixWidth = 5;
+    	} else if (iNewWidth == 4){
+    		matrixWidth = iNewWidth;
+    	}
     }
     
     /**
      * Gets the width of the matrix.
      * @return the width of the matrix.
+     * @author zipperle007
      */
-    public int getMatrixWidth() {
-    	return MATRIX_WIDTH;
+    public static int getMatrixWidth() {
+    	return matrixWidth;
     }
     
     /**
-     * Represents a cell in the MATRIX_WIDTH x MATRIX_WIDTH matrix of the unlock
+     * Sets the new size of the matrix. Also changes the width, to have consistent values.
+     * Values <= 9 are set to 9, values from 10 to 24 are set to 16 and values >= 25 are set to 25 to 
+     * keep square dimensions.
+     * @param iNewSize - new size of the matrix. Consider that it has to be the square value of the width!
+     * @author zipperle007
+     */
+    public static void setMatrixSize(int iNewSize) {
+    	if (iNewSize <= 9) {
+    		setMatrixWidth(3);
+    		matrixSize = 9;
+    	} else if (iNewSize > 9 && iNewSize < 25){
+    		setMatrixWidth(4);
+    		matrixSize = 16;
+    	} else if  (iNewSize >= 25) {
+    		setMatrixWidth(5);
+    		matrixSize = 25;
+    	} 
+    }
+    
+    /**
+     * Gets the size of the matrix, which is the square of the matrixWidth property.
+     * @return the size of the matrix.
+     * @author zipperle007
+     */
+    public static int getMatrixSize() {
+    	return matrixSize;
+    }
+    
+    /**
+     * Represents a cell in the matrixWidth x matrixWidth matrix of the unlock
      * pattern view.
      */
     public static class Cell implements Parcelable {
@@ -188,12 +232,12 @@ public class LockPatternView extends View {
         int mColumn;
 
         /*
-         * keep # objects limited to MATRIX_SIZE
+         * keep # objects limited to matrixSize
          */
-        static Cell[][] sCells = new Cell[MATRIX_WIDTH][MATRIX_WIDTH];
+        static Cell[][] sCells = new Cell[matrixWidth][matrixWidth];
         static {
-            for (int i = 0; i < MATRIX_WIDTH; i++) {
-                for (int j = 0; j < MATRIX_WIDTH; j++) {
+            for (int i = 0; i < matrixWidth; i++) {
+                for (int j = 0; j < matrixWidth; j++) {
                     sCells[i][j] = new Cell(i, j);
                 }
             }
@@ -236,7 +280,7 @@ public class LockPatternView extends View {
          * @return the ID.
          */
         public int getId() {
-            return mRow * MATRIX_WIDTH + mColumn;
+            return mRow * matrixWidth + mColumn;
         }// getId()
 
         /**
@@ -260,17 +304,17 @@ public class LockPatternView extends View {
          * @author Hai Bison
          */
         public static synchronized Cell of(int id) {
-            return of(id / MATRIX_WIDTH, id % MATRIX_WIDTH);
+            return of(id / matrixWidth, id % matrixWidth);
         }// of()
 
         private static void checkRange(int row, int column) {
-            if (row < 0 || row > MATRIX_WIDTH - 1) {
+            if (row < 0 || row > matrixWidth - 1) {
                 throw new IllegalArgumentException("row must be in range 0-"
-                        + (MATRIX_WIDTH - 1));
+                        + (matrixWidth - 1));
             }
-            if (column < 0 || column > MATRIX_WIDTH - 1) {
+            if (column < 0 || column > matrixWidth - 1) {
                 throw new IllegalArgumentException("column must be in range 0-"
-                        + (MATRIX_WIDTH - 1));
+                        + (matrixWidth - 1));
             }
         }
 
@@ -621,8 +665,8 @@ public class LockPatternView extends View {
      * Clear the pattern lookup table.
      */
     private void clearPatternDrawLookup() {
-        for (int i = 0; i < MATRIX_WIDTH; i++) {
-            for (int j = 0; j < MATRIX_WIDTH; j++) {
+        for (int i = 0; i < matrixWidth; i++) {
+            for (int j = 0; j < matrixWidth; j++) {
                 mPatternDrawLookup[i][j] = false;
             }
         }
@@ -646,10 +690,10 @@ public class LockPatternView extends View {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         final int width = w - mPaddingLeft - mPaddingRight;
-        mSquareWidth = width / (float) MATRIX_WIDTH;
+        mSquareWidth = width / (float) matrixWidth;
 
         final int height = h - mPaddingTop - mPaddingBottom;
-        mSquareHeight = height / (float) MATRIX_WIDTH;
+        mSquareHeight = height / (float) matrixWidth;
     }
 
     private int resolveMeasured(int measureSpec, int desired) {
@@ -672,19 +716,19 @@ public class LockPatternView extends View {
     @Override
     protected int getSuggestedMinimumWidth() {
         /*
-         * View should be large enough to contain MATRIX_WIDTH side-by-side
+         * View should be large enough to contain matrixWidth side-by-side
          * target bitmaps
          */
-        return MATRIX_WIDTH * mBitmapWidth;
+        return matrixWidth * mBitmapWidth;
     }
 
     @Override
     protected int getSuggestedMinimumHeight() {
         /*
-         * View should be large enough to contain MATRIX_WIDTH side-by-side
+         * View should be large enough to contain matrixWidth side-by-side
          * target bitmaps
          */
-        return MATRIX_WIDTH * mBitmapWidth;
+        return matrixWidth * mBitmapWidth;
     }
 
     @Override
@@ -809,7 +853,7 @@ public class LockPatternView extends View {
         float hitSize = squareHeight * mHitFactor;
 
         float offset = mPaddingTop + (squareHeight - hitSize) / 2f;
-        for (int i = 0; i < MATRIX_WIDTH; i++) {
+        for (int i = 0; i < matrixWidth; i++) {
 
             final float hitTop = offset + squareHeight * i;
             if (y >= hitTop && y <= hitTop + hitSize) {
@@ -831,7 +875,7 @@ public class LockPatternView extends View {
         float hitSize = squareWidth * mHitFactor;
 
         float offset = mPaddingLeft + (squareWidth - hitSize) / 2f;
-        for (int i = 0; i < MATRIX_WIDTH; i++) {
+        for (int i = 0; i < matrixWidth; i++) {
 
             final float hitLeft = offset + squareWidth * i;
             if (x >= hitLeft && x <= hitLeft + hitSize) {
@@ -1108,13 +1152,13 @@ public class LockPatternView extends View {
         final int paddingTop = mPaddingTop;
         final int paddingLeft = mPaddingLeft;
 
-        for (int i = 0; i < MATRIX_WIDTH; i++) {
+        for (int i = 0; i < matrixWidth; i++) {
             float topY = paddingTop + i * squareHeight;
             /*
              * float centerY = mPaddingTop + i * mSquareHeight + (mSquareHeight
              * / 2);
              */
-            for (int j = 0; j < MATRIX_WIDTH; j++) {
+            for (int j = 0; j < matrixWidth; j++) {
                 float leftX = paddingLeft + j * squareWidth;
                 drawCircle(canvas, (int) leftX, (int) topY, drawLookup[i][j]);
             }
