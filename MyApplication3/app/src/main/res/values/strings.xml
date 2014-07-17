@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">NFC Pass Fragment</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="Write_Button">Write</string>
+    <string name="Check_Button">Check</string>
+    <string name="Password">Password</string>
+
+</resources>
